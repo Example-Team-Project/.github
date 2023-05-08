@@ -18,7 +18,29 @@ The project aims to use [Quarkus](https://quarkus.io/) with **reactive** setup w
 
 It also tries to build the necessary tools around it, like centralized logging, tracing with OpenTelemetry, metrics, etc...
 
-Every tool used in the 
+```mermaid
+---
+title: Planned service structure
+---
+erDiagram
+    services {
+        film film-service
+        actor actor-service
+    }
+    services ||..|| film: contains
+    services ||..|| actor: contains
+    film ||..O{ actor: uses
+    services ||..|| database: uses
+    services ||..|| jaeger: "send traces"
+    services ||..|| fluentd: "send logs"
+    prometheus ||..|| services: "reads from"
+    prometheus ||..|| nodeexporter: "reads from"
+    prometheus ||..|| cadvisor: "reads from"
+    grafana ||..|| prometheus: uses
+    locust-master ||..|| locust-worker: "uses"
+    locust-master ||..|| services: "send load-tests"
+    locust-worker ||..|| services: "send load-tests"
+```
 
 ## Planned Goals
 
