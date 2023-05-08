@@ -21,3 +21,7 @@ If the service requires a global prefix in the request URI (eg: every URI start 
 1. Create a class extending the `jakarta.ws.rs.core.Application` then add the `@ApplicationPath("/api")` annotation
 2. set the `quarkus.resteasy-reactive.path: /api` property.
 
+## Native image
+
+TBD
+

@@ -60,3 +60,5 @@ erDiagram
   * Tracing through events (if possible)
 * CI/CD (maybe)
   * try GitHub actions first
+* [Local docker setup](https://github.com/Example-Team-Project/local-docker-setup#readme)
+* Kubernetes deployment (maybe)
