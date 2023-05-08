@@ -22,7 +22,7 @@ Every tool used in the
 
 ## Planned Goals
 
-* Quarkus with Reactive and Native Image
+* [Quarkus with Reactive and Native Image](docs/quarkus/index.md)
 * Centralized logging 
   * EFK (Elasticsearch, Fluentd, Kibana)
 * Tracing through OpenTelemetry
