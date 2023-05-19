@@ -33,20 +33,21 @@ erDiagram
     services ||..|| database: uses
     services ||..|| jaeger: "send traces"
     services ||..|| fluentd: "send logs"
+    api-gateway ||..|| services: "calls"
     prometheus ||..|| services: "reads from"
     prometheus ||..|| nodeexporter: "reads from"
     prometheus ||..|| cadvisor: "reads from"
     grafana ||..|| prometheus: uses
     locust-master ||..|| locust-worker: "uses"
-    locust-master ||..|| services: "send load-tests"
-    locust-worker ||..|| services: "send load-tests"
+    locust-master ||..|| api-gateway: "send load-tests"
+    locust-worker ||..|| api-gateway: "send load-tests"
 ```
 
 ## Planned Goals
 
 * [Quarkus with Reactive and Native Image](docs/quarkus/index.md)
 * Centralized logging 
-  * EFK (Elasticsearch, Fluentd, Kibana)
+  * EFK (Elasticsearch, Fluentd, Kibana) (_Check local docker setup below_)
 * Tracing through OpenTelemetry
   * Jaeger (dev DB)
     * setup with Elasticsearch if possible
@@ -54,7 +55,7 @@ erDiagram
   * Micrometer
   * Prometheus
   * Grafana
-* API Gateway 
+* [API Gateway](https://github.com/Example-Team-Project/gateway-service) 
 * Async communication
   * Kafka
   * Tracing through events (if possible)
